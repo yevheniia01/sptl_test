@@ -1,37 +1,37 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
 
-export default function List({userList, inputValue}) {
-    // console.log(inputValue)
-    // console.log(userList)
+export default function List({userList, inputValue, btnValue}) {
+    console.log(btnValue)
     return (
-        <div>
-            <Row>
-                <Col>
-                 <h1 id='listTitle'>Search User by Age</h1>
-                </Col>
-            </Row>
+        <div>      
             <Row> 
                 { userList.map((user)=>{
-                    
                     return(
                         <>
-                { inputValue == user.dob.age ?
-                
-                    <Col>
-                    <img src={user.picture.large}/>
-                    <h2>Name: {user.name.first} {user.name.last}</h2>
-                    <h4>Age: {user.dob.age}</h4>
-                    <h4>Location: {user.location.country}, {user.location.city}</h4>
-                    <h4>Cell: {user.cell}</h4>
-                    <h4></h4>
-                    
+                { btnValue == user.location.country || inputValue == user.dob.age ?
+                    <Col style={{marginBottom: '1rem'}}>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={user.picture.large} />
+                        <Card.Body>
+                            <Card.Title>Name: {user.name.first} {user.name.last}</Card.Title>
+                            <Card.Text>
+                                Age: {user.dob.age}
+                                <br></br>
+                                Location: {user.location.country}, {user.location.city}
+                                <br></br>
+                                Cell: {user.cell}
+                            </Card.Text>
+                        </Card.Body>
+                    </Card>        
                     </Col>: null}
                     </>
                     )
                 })}
             </Row>
+           
 
 
         </div>

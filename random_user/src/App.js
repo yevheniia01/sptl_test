@@ -11,13 +11,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   let [userList, setUsersList] = useState([ ]);
   let [inputValue, setInputValue] = useState('');
-  let [mappedUser, setMappedUser] = useState('')
+  let [btnValue, setBtnValue] = useState(' ');
   
   
 
  
   useEffect(() => {
-    fetch("https://randomuser.me/api/?results=5000")
+    fetch("https://randomuser.me/api/?results=1000")
     .then(response => response.json())
    
         .then(data => setUsersList(data.results))
@@ -27,8 +27,18 @@ function App() {
   
   return (
     <Container>
-      <Search inputValue={inputValue} setInputValue={setInputValue} userList={userList} mappedUser={mappedUser} /> 
-      <List userList={userList} inputValue={inputValue} />  
+      <Search  
+              inputValue={inputValue} 
+              setInputValue={setInputValue} 
+              userList={userList} 
+              btnValue = {btnValue}
+              setBtnValue={setBtnValue}
+      /> 
+
+      <List userList={userList} 
+            inputValue={inputValue} 
+            btnValue = {btnValue}
+      />  
     </Container>
 )
 }

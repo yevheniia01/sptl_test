@@ -8,9 +8,9 @@
 }
 #listTitle{
   text-align: center;
-  margin: 10px;
-  margin-bottom: 15px;
+  margin: 3rem;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -32,7 +32,18 @@
 .App-link {
   color: #61dafb;
 }
-
+.categoryBtn{
+  min-width: 150px;
+}
+#btnRow{
+  text-align: center;
+  margin: 3rem;
+}
+#clearBtnRow{
+  text-align: center;
+  margin-bottom: 1rem;
+  
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
